@@ -32,7 +32,7 @@ public class FlightModule extends AbstractModule {
     public void onTickStart() {
         // We don't want this module triggering when disabled, since it breaks creative mode flight.
         if (mc.player == null || !isEnabled()) return;
-        mc.player.getAbilities().flying = isEnabled();
+        mc.player.getAbilities().flying = true;
         if (mc.player.age % 40 >= 0 && mc.player.age % 40 <= 2) mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY(), mc.player.getZ(), mc.player.isOnGround()));
     }
 
